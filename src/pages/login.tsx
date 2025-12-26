@@ -33,7 +33,7 @@ export default function Login({
             password: data.password,
         });
         if (error) setError(error.message);
-        else navigate('/dashboard');
+        else navigate('/');
     };
     return (
         <ErrorBoundary FallbackComponent={ErrorFallback}>

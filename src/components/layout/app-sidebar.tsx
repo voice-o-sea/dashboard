@@ -25,7 +25,7 @@ import { useAuth } from '@/context/auth-context';
 const items = [
     {
         title: 'Dashboard',
-        url: '/dashboard',
+        url: '/',
         icon: Home,
     },
     {
