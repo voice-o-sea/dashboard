@@ -1,4 +1,3 @@
-/* eslint-disable no-constant-condition */
 import { Navigate } from 'react-router';
 import { useAuth } from '@/context/auth-context';
 import { Loader } from 'lucide-react';

@@ -1,13 +1,16 @@
+import { lazy, Suspense } from 'react';
 import { HashRouter, Routes, Route } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from './context/theme-provider';
 import { AuthProvider } from './context/auth-provider';
 import ProtectedRoute from './components/service/protected-route';
+import LoadingFallback from './components/service/loading-fallback';
 import Layout from './components/layout/layout';
-import Dashboard from './pages/dashboard';
-import Documents from './pages/documents';
-import Analytics from './pages/analytics';
 import Login from './pages/login';
+
+const Dashboard = lazy(() => import('@/pages/dashboard'));
+const Documents = lazy(() => import('@/pages/documents'));
+const Analytics = lazy(() => import('@/pages/analytics'));
 
 const queryClient = new QueryClient();
 
@@ -27,15 +30,33 @@ function App() {
                             >
                                 <Route
                                     path='/dashboard'
-                                    element={<Dashboard />}
+                                    element={
+                                        <Suspense
+                                            fallback={<LoadingFallback />}
+                                        >
+                                            <Dashboard />
+                                        </Suspense>
+                                    }
                                 />
                                 <Route
                                     path='/documents'
-                                    element={<Documents />}
+                                    element={
+                                        <Suspense
+                                            fallback={<LoadingFallback />}
+                                        >
+                                            <Documents />
+                                        </Suspense>
+                                    }
                                 />
                                 <Route
                                     path='/analytics'
-                                    element={<Analytics />}
+                                    element={
+                                        <Suspense
+                                            fallback={<LoadingFallback />}
+                                        >
+                                            <Analytics />
+                                        </Suspense>
+                                    }
                                 />
                             </Route>
                             <Route path='/login' element={<Login />} />

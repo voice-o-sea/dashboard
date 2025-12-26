@@ -18,7 +18,7 @@ export default function Layout() {
                     <AppHeader />
                 </header>
 
-                <main className='p-4'>
+                <main className='h-full p-4'>
                     <Outlet />
                     <Toaster position='top-center' />
                 </main>
