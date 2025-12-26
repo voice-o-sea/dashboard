@@ -10,7 +10,7 @@ export function useReviewers(): UseQueryResult<Reviewer[], Error> {
                 .from('reviewers')
                 .select('*');
             if (error) throw error;
-            console.log('QUERY reviewers', data);
+            //console.log('QUERY reviewers', data);
             return data || [];
         },
         staleTime: Infinity,

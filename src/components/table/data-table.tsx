@@ -80,7 +80,6 @@ export default function DataTable({
     >(null);
 
     React.useEffect(() => {
-        //console.log('updating table data', initialData);
         setData(initialData);
     }, [initialData]);
 

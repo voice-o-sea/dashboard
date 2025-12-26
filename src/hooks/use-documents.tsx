@@ -12,7 +12,7 @@ export function useDocuments(): UseQueryResult<Document[], Error> {
     return useQuery({
         queryKey: ['documents'],
         queryFn: async (): Promise<Document[] | []> => {
-            console.log('QUERY docs start');
+            //console.log('QUERY docs start');
             const { data, error } = await supabase
                 .from('documents')
                 .select(
@@ -32,7 +32,7 @@ export function useDocuments(): UseQueryResult<Document[], Error> {
                 .order('created_at', { ascending: false });
             //.limit(5);
             if (error) throw error;
-            console.log('QUERY docs done', data);
+            //console.log('QUERY docs done', data);
 
             const transformed: Document[] = (data || []).map((doc) => {
                 return {
@@ -69,14 +69,14 @@ export function useCreateDocument() {
                 reviewer_id: doc.reviewer?.id || null,
                 user_id: user?.id,
             };
-            console.log('insert dbDoc', dbDoc);
+            //console.log('insert dbDoc', dbDoc);
 
             const { data, error } = await supabase
                 .from('documents')
                 .insert(dbDoc)
                 .select();
 
-            console.log('insert result', data?.[0]);
+            //console.log('insert result', data?.[0]);
             if (error) throw error;
             return data[0];
         },
@@ -99,14 +99,14 @@ export function useUpdateDocument() {
                 limit_value: doc.limit,
                 reviewer_id: doc.reviewer?.id || null,
             };
-            console.log('update dbDoc', dbDoc);
+            //console.log('update dbDoc', dbDoc);
             const { data, error } = await supabase
                 .from('documents')
                 .update(dbDoc)
                 .eq('id', doc.id)
                 .select();
 
-            console.log('update result', data?.[0]);
+            //console.log('update result', data?.[0]);
             if (error) throw error;
             return data[0];
         },
@@ -126,7 +126,7 @@ export function useDeleteDocument() {
                 .delete()
                 .eq('id', id);
 
-            console.log('delete result', id);
+            //console.log('delete result', id);
             if (error) throw error;
             return id;
         },
