@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router';
+import { BrowserRouter, Routes, Route } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from './context/theme-provider';
 import { AuthProvider } from './context/auth-provider';
@@ -16,7 +16,7 @@ function App() {
         <QueryClientProvider client={queryClient}>
             <ThemeProvider>
                 <AuthProvider>
-                    <HashRouter>
+                    <BrowserRouter>
                         <Routes>
                             <Route
                                 element={
@@ -41,7 +41,7 @@ function App() {
                             <Route path='/login' element={<Login />} />
                             <Route path='/*' element={<Login />} />
                         </Routes>
-                    </HashRouter>
+                    </BrowserRouter>
                 </AuthProvider>
             </ThemeProvider>
         </QueryClientProvider>
