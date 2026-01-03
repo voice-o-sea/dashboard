@@ -27,5 +27,4 @@ A portfolio dashboard application built with React and TypeScript that demonstra
 
 ## Screenshots
 
-<img src="public/dashboard.png" width="500px">
-<img src="public/dashboard2.png" width="500px">
+<img src="public/dashboard.png" width="400px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="public/dashboard2.png" width="400px">
