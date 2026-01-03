@@ -25,6 +25,7 @@ A portfolio dashboard application built with React and TypeScript that demonstra
 
 [👉 Try Dashboard](https://voice-o-sea.github.io/dashboard)
 
-## Screenshot
+## Screenshots
 
 <img src="public/dashboard.png" width="500px">
+<img src="public/dashboard2.png" width="500px">
